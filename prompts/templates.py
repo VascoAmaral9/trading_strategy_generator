@@ -16,8 +16,19 @@ def get_trade_code_prompt(currency: str, wallet_balance: float) -> str:
         The currency is: {currency}
         The wallet balance is: {wallet_balance}
         Output will be a text containing the followings:
-            - advice to sell or buy
-            - amount in USDT
+            - Advice to sell or buy
+            - Amount in USDT
+            - Confidence
+            - Current Price
+            - Reason
+            Example output:
+            {{
+                Recommendation: BUY
+                Amount: 750.00 USDT
+                Confidence: High
+                Current Price: 116,719.99 USDT
+                Reason: Strong upward trend with high volume
+            }}
         Rules you have to apply in the code:
             - compose symbol: convert the input `currency` argument to upper case and concatenate it to string "USDT"
             - compose url passing the previously composed symbol: `url = f"https://data-api.binance.vision/api/v3/ticker/24hr?symbol={{symbol}}`
